@@ -4,21 +4,20 @@ import edu.emu.wics.spring.dto.Item;
 import edu.emu.wics.spring.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ItemController {
-    private final ItemService itemService;
+    private final ItemService itemService ;
 
-    @Autowired
-    public ItemController(ItemService itemService) {
-        this.itemService = itemService;
+    public ItemController(@Autowired ItemService itemService) {
+      this.itemService=itemService;
     }
 
-    @GetMapping("/item")
-    public String getItem() {
-        int id = 0;
+    @GetMapping("/item/{id}")
+    public String getItem(@PathVariable int id) {
         return itemService.getItem(id);
     }
 
