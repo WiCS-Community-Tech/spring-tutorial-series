@@ -1,9 +1,14 @@
 package edu.emu.wics.spring.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class Item {
     private int id;
     private String name;
     private String description;
+
+    public Item() {
+    }
 
     public Item(int id, String name, String description) {
         this.id = id;

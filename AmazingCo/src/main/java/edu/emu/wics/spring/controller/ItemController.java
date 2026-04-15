@@ -2,10 +2,12 @@ package edu.emu.wics.spring.controller;
 
 import edu.emu.wics.spring.dto.Item;
 import edu.emu.wics.spring.service.ItemService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -22,7 +24,7 @@ public class ItemController {
     }
 
     @PostMapping("/item")
-    public Item saveItem(Item item) {
+    public Item saveItem(@RequestBody Item item) {
         return itemService.saveItem(item);
     }
 }
