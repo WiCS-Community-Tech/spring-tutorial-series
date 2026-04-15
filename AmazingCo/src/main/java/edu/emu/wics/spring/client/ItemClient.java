@@ -20,7 +20,7 @@ public class ItemClient {
     }
 
     public Item getItem(int id) {
-        return restTemplate.getForObject("http://localhost:8081/item/"+id, Item.class);
+        return restTemplate.getForObject("http://localhost:8082/item/"+id, Item.class);
     }
 
     public Item saveItem(Item item) {
@@ -29,7 +29,8 @@ public class ItemClient {
 
         HttpEntity<Item> request = new HttpEntity<>(item, headers);
 
-        return restTemplate.postForObject(
-                "http://localhost:8081/item", request, Item.class);
+//        return restTemplate.postForObject(
+//                "http://localhost:8082/item", request, Item.class);
+        return item;
     }
 }

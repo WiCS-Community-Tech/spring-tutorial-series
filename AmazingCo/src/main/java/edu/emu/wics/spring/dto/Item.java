@@ -4,7 +4,9 @@ import jakarta.validation.constraints.NotBlank;
 
 public class Item {
     private int id;
+    @NotBlank
     private String name;
+    @NotBlank
     private String description;
 
     public Item() {
