@@ -1,8 +1,13 @@
 package edu.emu.wics.spring.dto;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-
+@Entity
+@Table(name = "item")
 public class Item {
+    @Id
     private int id;
     @NotBlank
     private String name;
