@@ -1,6 +1,7 @@
 package edu.emu.wics.spring.controller;
 
 import edu.emu.wics.spring.dto.Item;
+import edu.emu.wics.spring.dto.Product;
 import edu.emu.wics.spring.service.ItemService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
 
 @RestController
 public class ItemController {
@@ -19,12 +22,12 @@ public class ItemController {
     }
 
     @GetMapping("/item/{id}")
-    public String getItem(@PathVariable int id) {
+    public Product getItem(@PathVariable UUID id) {
         return itemService.getItem(id);
     }
 
     @PostMapping("/item")
-    public Item saveItem(@Valid @RequestBody Item item) {
+    public Product saveItem(@Valid @RequestBody Item item) {
         return itemService.saveItem(item);
     }
 }

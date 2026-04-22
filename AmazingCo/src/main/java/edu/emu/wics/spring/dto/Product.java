@@ -1,43 +1,42 @@
 package edu.emu.wics.spring.dto;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 
-public class Item {
-    private int id;
-    @NotBlank
+import java.util.UUID;
+
+@Table(name = "product")
+@Entity
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String name;
-    @NotBlank
     private String description;
 
-    public Item() {
+    public Product() {
     }
 
-    public Item(int id, String name, String description) {
+    public Product(UUID id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
+    public UUID getId() {
+        return id;
+    }
+    public void setId(UUID id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
